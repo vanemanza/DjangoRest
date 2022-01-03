@@ -1,7 +1,7 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+#from django.http import HttpResponse, JsonResponse
+#from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
-from rest_framework.parsers import JSONParser
+#from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from . models import Snippet
@@ -17,7 +17,7 @@ def snippet_list(request, format=None):
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
         #return JsonResponse(serializer.data, safe=False)
-        return JsonResponse(serializer.data)
+        return Response(serializer.data)
 
     elif request.method == 'POST':
         #data = JSONParser().parse(request)
