@@ -1,1 +1,1 @@
-# DjangoRest
+# Django REST framework
